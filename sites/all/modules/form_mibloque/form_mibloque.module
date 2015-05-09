@@ -1,0 +1,84 @@
+<?php
+
+// This function defines the URL to the page created etc.
+// See http://api.drupal.org/api/function/hook_menu/6
+function form_mibloque_menu() {
+	 $items = array();
+	 $items['form_mibloque/form'] = array(
+		 'title' => t('Form My Bloque'),
+		 'page callback' => 'form_mibloque_form',
+		 'access arguments' => array('access content'),
+		 'description' => t('My Form Bloque'),
+		 'type' => MENU_CALLBACK,
+	 );
+ return $items;
+}
+
+// This function gets called in the browser address bar for:
+//"http://yourhost/form_tutorial/form" or
+//"http://yourhost/?q=form_tutorial/form". It will generate// a page with //this form o
+function form_mibloque_form() {
+ // This form calls the form builder function via the
+ // drupal_get_form() function which takes the name of this form builder
+ // function as an argument. It returns the results to display the form.
+	return drupal_get_form('form_mibloque_my_form_2');
+}
+
+// This function is called the "form builder". It builds the form.
+// Notice, it takes one argument, the $form_state
+function form_mibloque_my_form($form_state) {
+ // This is the first form element. It's a textfield with a label, "Name"
+	$form['description'] = array(
+		 '#type' => 'item',
+		 '#title' => t('A simple form whit a submit button'),
+	);
+
+	$form['name'] = array(
+		 '#type' => 'textfield',
+		 '#title' => t('Name'),
+	);
+
+	$form['submit'] = array(
+		 '#type' => 'submit',
+		 '#title' => t('Submit'),
+	);
+
+ return $form;
+}
+
+function form_mibloque_my_form_2($form_state) {
+	$form['description'] = array(
+	    '#type' => 'item',
+	    '#title' => t('A form with a fieldset'),
+	);
+	$form['name'] = array(
+		'#type' => 'fieldset',
+		'#title' => t('Name'),
+	);
+	$form['name']['first'] = array(
+		'#type' => 'textfield',
+		'#title' => t('First name'),
+	);
+  	$form['name']['last'] = array(
+	    '#type' => 'textfield',
+	    '#title' => t('Last name'),
+	);
+
+	$form['directions'] = array(
+		'#type' => 'fieldset',
+		'#title' => t('Directions'),
+	);
+	$form['directions']['first'] = array(
+		'#type' => 'textfield',
+		'#title' => t('First directions'),
+	);
+  	$form['directions']['last'] = array(
+	    '#type' => 'textfield',
+	    '#title' => t('Sewcond directions'),
+	);
+	$form['submit'] = array(
+		'#type' => 'submit',
+		'#value' => 'Submit',
+	);
+  return $form;
+}

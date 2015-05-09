@@ -1,0 +1,28 @@
+<?php
+//$Id$
+
+/**
+@file
+Module dor show data in a block
+This module provides block content buuilder from API
+*/
+
+function mibloque_block_info(){
+	$blocks = array();
+
+	$blocks['info'] = array(
+		'info'=>t('My Block Roger')
+	);
+
+	return $blocks;
+}
+
+function mibloque_block_view($delta = ''){
+	$block = array();
+
+	$block['subject'] = t('Título de Mi bloque');
+	$block['content'] = t('Cuerpo de Mi bloque');
+
+	return $block;	
+
+}

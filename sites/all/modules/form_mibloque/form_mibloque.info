@@ -1,0 +1,4 @@
+;$Id$
+name = "Form mybloque Roger"
+description = "Formulario creado como pruebas"
+core = 7.x

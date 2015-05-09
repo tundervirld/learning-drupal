@@ -1,0 +1,4 @@
+;$Id$
+name = "Mi Bloque"
+description = "Muestra de un bloque creado desde la Api Drupal"
+core = 7.x
